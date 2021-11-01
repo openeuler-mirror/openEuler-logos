@@ -2,12 +2,11 @@
 
 Name:           openEuler-logos
 Version:        1.0
-Release:        6
+Release:        7
 Summary:        openEuler-related icons and pictures
 License:        Licensed only for approved usage, see COPYING for details. 
 Source0:        openEuler-logos-%{version}.tar.xz
 BuildArch:      noarch
-BuildRequires:  hardlink
 Requires(post): coreutils
 
 Provides:       gnome-logos = %{version}-%{release} system-logos = %{version}-%{release}
@@ -60,7 +59,7 @@ install -p -m 644 icons/hicolor/scalable/apps/xfce4_xicon1.svg $RPM_BUILD_ROOT%{
 (cd anaconda; make DESTDIR=$RPM_BUILD_ROOT install)
 
 # save some dup'd icons
-/usr/sbin/hardlink -v %{buildroot}/
+hardlink -v %{buildroot}/
 
 %post
 touch --no-create %{_datadir}/icons/hicolor || :
@@ -90,6 +89,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 22 2021 chenchen <chen_aka_jan@163.com> - 1.0-7
+- fix hardlink command cannot be found
+
 * Mon Dec 30 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.0-6
 - Type:bugfix
 - ID:NA
