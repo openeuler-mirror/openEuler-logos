@@ -2,7 +2,7 @@
 
 Name:           openEuler-logos
 Version:        1.0
-Release:        7
+Release:        8
 Summary:        openEuler-related icons and pictures
 License:        Licensed only for approved usage, see COPYING for details. 
 Source0:        openEuler-logos-%{version}.tar.xz
@@ -90,6 +90,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Feb 15 2022 YukariChiba <i@0x7f.cc> - 1.0-8
+- Compress src into tar.xz to fix build.
+
 * Mon Jul 27 2020 lingsheng <lingsheng@huawei.com> - 1.0-7
 - Not use hardlink absolute path
 
@@ -125,5 +128,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 * Thu Aug 15 2019 openEuler Buildteam <buildteam@openEuler.org> - 1.0-1
 - Package init
+
 
 
